@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>EDCrypt.h</itemPath>
+      <itemPath>UserInfo.h</itemPath>
+      <itemPath>W_NFC.h</itemPath>
+      <itemPath>utils/mifare.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>EDCrypt.c</itemPath>
+      <itemPath>UserInfo.c</itemPath>
+      <itemPath>W_NFC.c</itemPath>
+      <itemPath>main.c</itemPath>
+      <itemPath>utils/mifare.c</itemPath>
+      <itemPath>utils/nfc-utils.c</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <commandLine>-std=gnu99</commandLine>
+        </cTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>`pkg-config --libs libnfc`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs ndef`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs libcrypto`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="EDCrypt.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="EDCrypt.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="UserInfo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="UserInfo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="W_NFC.c" ex="false" tool="0" flavor2="0">
+        <cTool>
+          <architecture>0</architecture>
+          <warningLevel>1</warningLevel>
+        </cTool>
+      </item>
+      <item path="W_NFC.h" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="utils/mifare.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="utils/mifare.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/nfc-utils.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+          <commandLine>-std=gnu99</commandLine>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>`pkg-config --libs libnfc`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs libcrypto`</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="EDCrypt.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="EDCrypt.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="UserInfo.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="UserInfo.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="W_NFC.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="W_NFC.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="utils/mifare.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="utils/mifare.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/nfc-utils.c" ex="false" tool="0" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
