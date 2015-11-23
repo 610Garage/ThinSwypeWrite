@@ -18,7 +18,7 @@ void SetUserInfo(char * u, char * p, char * vm, Credentials *crd){
         return;
     }
     int PL = strlen(p);//get the legnth of the user name
-    if(PL > Max_Password_Legnth){
+    if(PL > MAX_VM_PASSWORD_LEGNTH){
         printf("\nPassword is too long\n");
         return;
     }

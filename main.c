@@ -20,9 +20,48 @@
 #include "UserInfo.h"
 #include "EDCrypt.h"
 
+
+
 ReaderTag RT;
 static mifareul_tag mtDump; //holds tag payload
+int count;
 
+
+/**
+ * Get a single line from the counsole and place it into the buffer
+ * @param buffer
+ * A pointer to the buffer that the line will be stored
+ * @return 
+ * returns the number of elements in the buffer
+ */
+int GetCLine(char * buffer, int MaxL){
+    int c = 0;//holds a character form the counsole stream
+    int count = 0;//number of chars in buffer
+    
+    memset(buffer, 0x00, MaxL);//clean the buffer
+    
+    while(count <= 0){
+    
+        while((c=fgetc(stdin)) != '\n' && count < MaxL){//get the char from console, see if the line is over, make sure were not overruning buffer
+            buffer[count++] = (char)c;//throw the char into the buffer and incrament the char counter/buffer position
+        }
+        if(count >= MaxL){
+            while ( getchar() != '\n' );
+            printf("too long, please keep input less than %i\n",MaxL);
+            memset(buffer, 0x00, MaxL);//clean the buffer
+            count = 0;
+        }else if(memchr(buffer,'\"',MaxL)){
+            printf("Cannot contain quotation marks\n");
+            memset(buffer, 0x00, MaxL);//clean the buffer
+            count = 0;
+        } else if(count == 0){
+            printf("input cannot be empty\n");        
+        }   
+    }
+        
+    //buffer[count++] = '\n';//the while loop discards the new line char, so lets pop it back in
+    return(count);//tell the caller the number of chars in buffer
+}
 
 int main(int argc, const char *argv[]){
     
@@ -36,36 +75,21 @@ int main(int argc, const char *argv[]){
     memset(&password, 0x00, MAX_PASSWORD_LEGNTH);
     char s[Max_User_Legnth];
     memset(&s, 0x00, Max_User_Legnth);
-    char p[Max_Password_Legnth];
-    memset(&p, 0x00, Max_Password_Legnth);
+    char p[MAX_VM_PASSWORD_LEGNTH];
+    memset(&p, 0x00, MAX_VM_PASSWORD_LEGNTH);
     char v[Max_VM_Legnth];
     memset(&v, 0x00, Max_VM_Legnth);
     
     KEY key;
     
-    
-    /*
-     *To Do
-     * sanitize thease before sticking them into the struct
-     */
-    printf("Enter password\n");
-    scanf("%128s",password);
-    while ( getchar() != '\n' );//clear out the consule input
+    printf("Enter encryption password\n");
+    GetCLine(password,MAX_PASSWORD_LEGNTH);
     printf("Enter User Name\n");//ask the user
-    scanf("%12s", s);//grap the input, and place it into the opropreite varible
-    while ( getchar() != '\n' );//clear out the consule input
+    GetCLine(s,Max_User_Legnth);
     printf("Enter Password\n");//repeate
-    scanf("%30s", p);
-    while ( getchar() != '\n' );
+    GetCLine(p,MAX_VM_PASSWORD_LEGNTH);
     printf("Enter VM\n");
-    scanf("%24s", v);
-    while ( getchar() != '\n' );
-    /*printf("Enter Key\n");
-    while ( getchar() != '\n' );
-    scanf("%32s",key);
-    printf("Enter IV\n");
-    while ( getchar() != '\n' );
-    scanf("%16s",IV);*/
+    GetCLine(v,Max_VM_Legnth);
     
     keyGen(&key, password);
     
@@ -99,5 +123,6 @@ int main(int argc, const char *argv[]){
   //clean up
   nfc_close(RT.device);
   nfc_exit(RT.context);
+  
   exit(EXIT_SUCCESS);
 }
