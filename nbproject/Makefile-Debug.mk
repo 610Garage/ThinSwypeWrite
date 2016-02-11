@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -57,7 +57,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=`pkg-config --libs libnfc` `pkg-config --libs ndef` `pkg-config --libs libcrypto`  
+LDLIBSOPTIONS=`pkg-config --libs libnfc` `pkg-config --libs libcrypto`  
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -70,37 +70,37 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/nfctagwrite: ${OBJECTFILES}
 ${OBJECTDIR}/EDCrypt.o: EDCrypt.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags ndef` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EDCrypt.o EDCrypt.c
+	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EDCrypt.o EDCrypt.c
 
 ${OBJECTDIR}/UserInfo.o: UserInfo.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags ndef` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/UserInfo.o UserInfo.c
+	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/UserInfo.o UserInfo.c
 
 ${OBJECTDIR}/W_NFC.o: W_NFC.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags ndef` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/W_NFC.o W_NFC.c
+	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/W_NFC.o W_NFC.c
 
 ${OBJECTDIR}/W_NFC.h.gch: W_NFC.h 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags ndef` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o "$@" W_NFC.h
+	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o "$@" W_NFC.h
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags ndef` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
 
 ${OBJECTDIR}/utils/mifare.o: utils/mifare.c 
 	${MKDIR} -p ${OBJECTDIR}/utils
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags ndef` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/utils/mifare.o utils/mifare.c
+	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/utils/mifare.o utils/mifare.c
 
 ${OBJECTDIR}/utils/nfc-utils.o: utils/nfc-utils.c 
 	${MKDIR} -p ${OBJECTDIR}/utils
 	${RM} "$@.d"
-	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags ndef` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/utils/nfc-utils.o utils/nfc-utils.c
+	$(COMPILE.c) -g `pkg-config --cflags libnfc` `pkg-config --cflags libcrypto`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/utils/nfc-utils.o utils/nfc-utils.c
 
 # Subprojects
 .build-subprojects:
